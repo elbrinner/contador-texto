@@ -353,6 +353,45 @@ US1 store and shell specs added as contract-first pending suites because `text-a
 
 ---
 
+## Documentation Update Decisions — 2026-04-22 (Cruyff & Pele)
+
+**Status:** Delivered  
+**Requestor:** Elbrinner da Silva Fernandes  
+
+### AGENTS.md Creation (Cruyff)
+
+**Scope:** Create `AGENTS.md` at repository root with practical guidance for future coding agents  
+**Content Includes:**
+- Product overview and core value proposition
+- Getting started commands (install, dev server, test, lint, build)
+- Complete project structure with ownership boundaries (models/, utils/, services/, components/)
+- Architecture diagram showing data flow (input → normalize → compute → display)
+- Critical data contracts with immutability rules
+- Safe change patterns (adding metrics, swapping token estimator, multi-format analysis)
+- Pitfalls to avoid (6 anti-patterns)
+- Testing patterns (service, component, utility)
+- Team coordination and agent roles with quick-reference table
+- Framework versions and tooling info
+
+**Quality:** Aligned with ADR 0001; immutability and frozen snapshot patterns explicit; extensibility roadmap documented
+
+---
+
+### README.md Expansion (Pele)
+
+**Scope:** Add "How This Project Works" section explaining Spec Kit + Squad methodology  
+**Changes:**
+1. **Proof of Concept Statement** — Position as specification-first + multi-agent implementation workflow
+2. **`.squad/` Directory Guide Table** — Maps all key files/folders (team.md, decisions.md, charters, history, identity, skills, ceremonies, orchestration-log)
+3. **Spec Kit Structure Documentation** — Explains `specs/001-arquitectura-inicial/` with file-by-file guidance
+4. **Documentation Layers Matrix** — Distinguishes Specification, Architecture, and Governance layers
+5. **Onboarding Path** — Clear sequence for new contributors
+6. **Updated Documentation Section** — Cross-links to all major docs (README, AGENTS.md, ADRs, technical guides, release notes)
+
+**Quality:** Newcomers can navigate `.squad/` and `specs/` without external help; methodology transparent
+
+---
+
 ## Governance
 
 - All meaningful changes require team consensus

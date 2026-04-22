@@ -146,3 +146,30 @@ Ralph: Monitor Phase 1B deferred features (format flags, animations) per backlog
 
 **Next Phase:** User testing and Phase 1B feature implementation
 
+## Documentation Session — 2026-04-22T23:01:43Z
+
+**Agent Role in Session:** Lead (Pele)  
+**Cross-Team Coordination:** Cruyff (Backend Dev) — AGENTS.md creation
+
+**Deliverable — README.md Expansion:**
+- Expanded README.md with new "How This Project Works" section explaining Spec Kit + Squad methodology
+- Added `.squad/` Directory Guide table mapping all key files/folders to audience and purpose
+- Documented Spec Kit structure (`specs/001-arquitectura-inicial/`) with file-by-file guidance
+- Created Documentation Layers matrix distinguishing Specification, Architecture, and Governance streams
+- Established clear onboarding path: team.md → agent charter → decisions.md
+- Updated "Documentation" section with comprehensive cross-reference matrix linking AGENTS.md, ADRs, technical guides, release notes
+
+**Team Updates:**
+- Documentation update decisions (AGENTS.md + README.md) merged into `.squad/decisions.md`
+- Inbox files deleted after merge
+- Orchestration logs created for both Cruyff and Pele
+- Session log created in `.squad/log/`
+
+**Impact:**
+- Newcomers can navigate `.squad/` and `specs/` independently without external help
+- Methodology transparent: Spec Kit (specification-first) → Squad (multi-agent implementation) workflow documented
+- All agent roles and cross-dependencies visible in README
+- Three documentation streams (spec/architecture/governance) clearly disambiguated
+
+**Next Phase:** Team ready for deferred phases; all governance and documentation artifacts in place for continuation.
+

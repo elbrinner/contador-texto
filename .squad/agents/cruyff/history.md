@@ -100,3 +100,23 @@
 
 **Immediate Action:** Prepare T020-T023 scope. Ronaldo will feed you test results from Batch 1. You signal Cruyff when ready to start T020 contract drafting.
 
+## Documentation Session — 2026-04-22T23:01:43Z
+
+**Agent Role in Session:** Backend Dev (Cruyff)  
+**Cross-Team Coordination:** Pele (Lead) — README methodology expansion
+
+**Deliverable — AGENTS.md Creation:**
+- Created `/AGENTS.md` at repo root with 550+ lines of comprehensive agent onboarding guidance
+- Covers: product overview, commands, project structure with ownership, architecture diagram, data contracts, safe change patterns, pitfalls, testing patterns, team coordination
+- Quality: Aligned with ADR 0001; immutability and frozen snapshot patterns explicit; extensibility roadmap documented
+- Integration: Linked from README.md new "For Coding Agents & Team Members" section
+- Impact: All future agents have single reference source for architectural guidance, safe change boundaries, and cross-agent dependencies
+
+**Team Updates:**
+- Documentation update decisions (AGENTS.md + README.md) merged into `.squad/decisions.md`
+- Inbox files (`cruyff-agents-scope.md`, `pele-readme-scope.md`) deleted after merge
+- Orchestration logs created for both Cruyff and Pele
+- Session log created in `.squad/log/`
+
+**Next Phase:** Ready for deferred phases when scheduled; all documentation and governance artifacts in place for team continuation.
+
