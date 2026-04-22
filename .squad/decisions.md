@@ -116,7 +116,19 @@ interface TokenEstimate {
 
 ---
 
-## Governance
+## Task Allocation Record — 2026-04-22T21:47:14Z
+
+**Requestor:** Elbrinner da Silva Fernandes  
+**Orchestrator:** Scribe  
+**Validator:** Pele (Lead), Ralph (Work Monitor)  
+
+**Allocation Summary:**
+- 34 tasks distributed across immediate MVP batch + deferred phases
+- Immediate batch assigned to: Messi (T001-T003, T009), Cruyff (T004-T007), Ronaldo (T008, T010, T011), Maradona (T012-T014 review), Zidane (T011, T013, T014 a11y validation)
+- Deferred phases begin after MVP checkpoint at T017
+- All dependencies validated for safe parallel execution
+
+**Governance:**
 
 - All meaningful changes require team consensus
 - Document architectural decisions here

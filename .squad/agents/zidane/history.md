@@ -20,3 +20,17 @@
 - **Ronaldo (QA):** Screen reader testing script creation (NVDA, JAWS, VoiceOver)
 
 **Accessibility Implementation Plan:** WCAG 2.1 Level AA compliance as MVP baseline
+
+## Task Allocation — 2026-04-22T21:47:14Z
+
+**Assigned:** T011 (testing validation), T013 (design validation), T014 (micro-interaction validation)  
+**Status:** Allocated → Ready to start parallel validation track  
+**Dependencies:** None (parallel validation track)  
+**Parallel Partners:** Ronaldo (T011 testing), Maradona (T013, T014 design)  
+
+**Validation Scope:**
+- T011: Screen reader testing for confidence badge + test assertions
+- T013: Color contrast + keyboard navigation for responsive layout
+- T014: Motion/animation accessibility + reduced-motion preferences
+
+**Start Signal:** Begin immediately. A11y validation runs in parallel with feature development.

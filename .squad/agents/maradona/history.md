@@ -20,3 +20,17 @@
 - **Zidane (A11y):** Color contrast validation + keyboard navigation accessibility review
 
 **Design Coordination Needed:** Confirm mobile-first vs desktop-first build order
+
+## Task Allocation — 2026-04-22T21:47:14Z
+
+**Assigned:** T012, T013, T014 (MVP Baseline — Design/Review Support)  
+**Status:** Allocated → Ready to start  
+**Dependencies:** None (design phase)  
+**Parallel Track:** Zidane a11y validation on T013, T014  
+
+**Implementation Scope:**
+- T012: Split-screen layout (desktop 70%/30%, mobile stacked)
+- T013: Responsive breakpoints + color contrast validation (parallel Zidane)
+- T014: Micro-interactions + reduced-motion accessibility (parallel Zidane)
+
+**Start Signal:** Begin immediately. Design phase can run in parallel with backend/frontend.

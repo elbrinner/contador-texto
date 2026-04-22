@@ -20,3 +20,16 @@
 - **Ralph (Coordination):** Automated test runner integration in CI/CD pipeline
 
 **Test Strategy Coordination:** Create dataset with emoji, combining characters, non-Latin scripts for baseline validation against OpenAI tokenizer
+
+## Task Allocation — 2026-04-22T21:47:14Z
+
+**Assigned:** T008, T010, T011 (MVP Baseline)  
+**Status:** Allocated → Ready pending token service  
+**Prerequisite:** Cruyff Token Service (T004-T007) for test validation  
+**Parallel Track:** Zidane a11y validation on T011  
+
+**Implementation Order:** 
+1. Create differential verification baseline (dataset)
+2. Integrate Cruyff token service
+3. Implement confidence badge validation
+4. NVDA/JAWS screen reader testing (parallel with Zidane)

@@ -23,3 +23,12 @@
 - **Ralph (Coordination):** Feature flag enables animation preference toggle for users who prefer reduced motion
 
 **Implementation Coordination:** Mock transitions in Simple Browser for team feel validation
+
+## Task Allocation — 2026-04-22T21:47:14Z
+
+**Assigned:** T001, T002, T003, T009 (MVP Baseline)  
+**Status:** Allocated → Ready for implementation  
+**Prerequisite:** Cruyff Token Service (T004-T007) blocks animation integration  
+**Parallel Tracks:** Zidane a11y validation, Maradona UX design  
+
+**Start Signal:** Await Cruyff token estimator service completion for signal-driven metric animations.

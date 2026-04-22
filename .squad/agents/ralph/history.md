@@ -38,3 +38,20 @@ Football-legend team naming is active for project agents.
 - Ralph: Feature Flag Stack (process enabler)
 
 **Cross-Agent Coordination Status:** All dependencies identified and logged in orchestration-log/. Ready for Scribe consensus phase and implementation planning.
+
+## Task Allocation Coordination — 2026-04-22T21:47:14Z
+
+**Role:** Work Monitor & Backlog Coordinator  
+**Action:** Proposed 34-task distribution (approved by Pele)  
+
+**Coordination Summary:**
+- Immediate batch: 17 tasks across Messi, Cruyff, Ronaldo, Maradona, Zidane
+- Deferred phases: 17 tasks post-MVP checkpoint (after T017)
+- Feature flag stack (Ralph's T016-T017) enables Phase 1B parallel delivery
+
+**Backlog Status:**
+- MVP Critical Path (T001-T017): Allocated ✓
+- Phase 1A (T018-T025): Deferred ✓
+- Phase 1B (T026-T034): Deferred ✓
+
+**Next:** Monitor team velocity + checkpoint timing for Phase 1A kickoff decision.
