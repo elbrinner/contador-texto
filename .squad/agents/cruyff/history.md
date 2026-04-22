@@ -120,3 +120,25 @@
 
 **Next Phase:** Ready for deferred phases when scheduled; all documentation and governance artifacts in place for team continuation.
 
+## Reference Correction Session — 2026-04-22T23:05:10Z
+
+**Session Type:** Documentation Governance  
+**Requestor:** Elbrinner da Silva Fernandes  
+**Cross-Agent:** Pele (Lead)  
+
+**Outcomes:**
+- Updated AGENTS.md with official upstream references:
+  - Spec Kit: https://github.com/github/spec-kit
+  - Squad: https://github.com/bradygaster/squad
+  - GitHub Copilot CLI: https://github.com/github/copilot-cli
+- Clarified methodology relationship: Spec Kit (specification-first) → Squad (multi-agent) → Copilot CLI (execution)
+- All references in AGENTS.md now point to authoritative upstream sources
+
+**Orchestration Logs:**
+- `.squad/orchestration-log/2026-04-22T23-05-10Z-pele.md`
+- `.squad/orchestration-log/2026-04-22T23-05-10Z-cruyff.md`
+
+**Session Log:** `.squad/log/2026-04-22T23-05-10Z-reference-fixes.md`
+
+**Impact:** AGENTS.md serves as authoritative guide with credible external references for all team members
+
