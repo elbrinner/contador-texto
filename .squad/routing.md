@@ -6,19 +6,22 @@ How to decide who handles what.
 
 | Work Type | Route To | Examples |
 |-----------|----------|----------|
-| {domain 1} | {Name} | {example tasks} |
-| {domain 2} | {Name} | {example tasks} |
-| {domain 3} | {Name} | {example tasks} |
-| Code review | {Name} | Review PRs, check quality, suggest improvements |
-| Testing | {Name} | Write tests, find edge cases, verify fixes |
-| Scope & priorities | {Name} | What to build next, trade-offs, decisions |
+| Product architecture | Pele | Scope, technical direction, trade-offs, code review |
+| Angular frontend | Messi | Components, state, routes, forms, accessibility |
+| UX/UI design | Maradona | User flows, wireframes, interaction design, visual consistency |
+| Accessibility | Zidane | WCAG, keyboard flows, semantic markup, screen reader support |
+| APIs & integrations | Cruyff | Data contracts, services, backend integration, auth |
+| Testing | Ronaldo | Unit tests, e2e tests, edge cases, regression coverage |
+| Code review | Pele | Review PRs, check quality, suggest improvements |
+| Scope & priorities | Pele | What to build next, trade-offs, decisions |
 | Session logging | Scribe | Automatic — never needs routing |
+| Backlog monitoring | Ralph | Watch the board, pick the next item, keep work moving |
 
 ## Issue Routing
 
 | Label | Action | Who |
 |-------|--------|-----|
-| `squad` | Triage: analyze issue, assign `squad:{member}` label | Lead |
+| `squad` | Triage: analyze issue, assign `squad:{member}` label | Pele |
 | `squad:{name}` | Pick up issue and complete the work | Named member |
 
 ### How Issue Assignment Works
