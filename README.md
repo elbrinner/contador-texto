@@ -1,5 +1,7 @@
 # Contador Texto
 
+> **Proof of Concept:** This repository demonstrates how to use [Spec Kit](https://github.com/github/copilot-cli) to define features through structured artifacts, and [Squad](https://github.com/github/copilot-cli) to implement them as a coordinated team of AI agents.
+
 A lightweight, accessible text analysis application built with Angular 21. Analyze character counts, word counts, and token estimates in real-time as you write.
 
 ## Quick Start
@@ -21,6 +23,95 @@ npm lint
 # Build for production
 npm run build
 ```
+
+---
+
+## How This Project Works
+
+This proof of concept uses two key methodologies:
+
+1. **[Spec Kit](https://github.com/github/copilot-cli)** — Define features through structured design artifacts (specifications, plans, tasks, research documents)
+2. **[Squad](https://github.com/github/copilot-cli)** — Implement via a coordinated team of AI agents (each with specialized expertise) that follow the design
+
+### The Workflow
+
+```
+Spec Kit (Design)           Squad (Implementation)
+├─ spec.md                  ├─ Pele (Lead)
+├─ plan.md          ───→    ├─ Messi (Frontend)
+├─ tasks.md                 ├─ Cruyff (Backend)
+├─ data-model.md            ├─ Maradona (UX)
+└─ research.md              ├─ Zidane (A11y)
+                            ├─ Ronaldo (Testing)
+                            ├─ Scribe (Logging)
+                            └─ Ralph (Monitoring)
+```
+
+---
+
+## Squad: Team Structure & Files
+
+The `.squad/` folder contains agent charters, decisions, and coordination artifacts.
+
+### Core Files
+
+| File | Purpose |
+|------|---------|
+| `.squad/config.json` | Squad version and configuration metadata |
+| `.squad/team.md` | Team roster: agent names, roles, and charter locations |
+| `.squad/routing.md` | Work routing table: which agent handles which type of task |
+| `.squad/ceremonies.md` | Team ceremonies: design reviews, retrospectives |
+| `.squad/decisions.md` | Decision log: architectural choices, task allocations, feature decisions |
+
+### Agent Directories
+
+| Agent | Role | Files |
+|-------|------|-------|
+| **Pele** | Lead | `.squad/agents/pele/history.md` — Context, learnings, approvals |
+| **Messi** | Frontend Dev | `.squad/agents/messi/charter.md` — Angular components, state, routes |
+| **Cruyff** | Backend Dev | `.squad/agents/cruyff/charter.md` — Data contracts, services, APIs |
+| **Maradona** | UX/UI Designer | `.squad/agents/maradona/charter.md` — User flows, layout, interaction |
+| **Zidane** | Accessibility | `.squad/agents/zidane/charter.md` — WCAG compliance, semantic markup |
+| **Ronaldo** | Tester | `.squad/agents/ronaldo/charter.md` — Unit tests, edge cases, coverage |
+| **Scribe** | Session Logger | `.squad/agents/scribe/charter.md` — Automatic session documentation |
+| **Ralph** | Work Monitor | `.squad/agents/ralph/charter.md` — Backlog tracking, task sequencing |
+
+### Key Artifacts
+
+- **`.squad/log/`** — Timestamped logs of each work session
+- **`.squad/orchestration-log/`** — Cross-agent dependency tracking and handoff records
+- **`.squad/identity/now.md`** — Current project state (status, phase, blockers)
+- **`.squad/casting/`** — Agent casting decisions for complex features
+
+---
+
+## Spec Kit: Design Artifacts
+
+The `specs/001-arquitectura-inicial/` folder contains the complete design for the initial application architecture.
+
+### Purpose
+
+Before any code is written, Spec Kit ensures the team aligns on *what* to build, *why*, and *how*. Each artifact serves a specific purpose in the design process.
+
+### Core Design Files
+
+| File | Purpose |
+|------|---------|
+| **`spec.md`** | Feature specification: clarifications, user stories, acceptance scenarios, and testing strategy |
+| **`plan.md`** | Implementation plan: technical context, design summary, and phase breakdown |
+| **`tasks.md`** | Actionable task list: 34 tasks organized by user story, dependency-ordered, assigned to agents |
+| **`data-model.md`** | Data contracts: input/output models, state structure, signal dependencies |
+| **`research.md`** | Research findings: token estimation analysis, performance baselines, similar projects |
+| **`quickstart.md`** | Validation checklist: smoke-test procedures, visual & keyboard verification steps |
+
+### Supporting Contracts
+
+| File | Purpose |
+|------|---------|
+| **`contracts/ui-architecture.md`** | UI-specific contracts: component responsibility, composition rules, data flow |
+| **`checklists/`** | Feature-specific validation checklists (smoke tests, accessibility, responsive design) |
+
+---
 
 ## Project Structure
 
