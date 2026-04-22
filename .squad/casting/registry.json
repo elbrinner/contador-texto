@@ -1,0 +1,46 @@
+{
+  "agents": {
+    "pele": {
+      "persistent_name": "Pele",
+      "universe": "Football Legends",
+      "created_at": "2026-04-22T19:28:04.825+02:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "messi": {
+      "persistent_name": "Messi",
+      "universe": "Football Legends",
+      "created_at": "2026-04-22T19:28:04.825+02:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "maradona": {
+      "persistent_name": "Maradona",
+      "universe": "Football Legends",
+      "created_at": "2026-04-22T19:28:04.825+02:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "cruyff": {
+      "persistent_name": "Cruyff",
+      "universe": "Football Legends",
+      "created_at": "2026-04-22T19:28:04.825+02:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "ronaldo": {
+      "persistent_name": "Ronaldo",
+      "universe": "Football Legends",
+      "created_at": "2026-04-22T19:28:04.825+02:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "zidane": {
+      "persistent_name": "Zidane",
+      "universe": "Football Legends",
+      "created_at": "2026-04-22T19:33:36.853+02:00",
+      "legacy_named": false,
+      "status": "active"
+    }
+  }
+}

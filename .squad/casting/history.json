@@ -1,0 +1,41 @@
+{
+  "universe_usage_history": [
+    {
+      "assignment_id": "contador-texto-initial-cast",
+      "universe": "Football Legends",
+      "created_at": "2026-04-22T19:28:04.825+02:00",
+      "team_size": 5
+    },
+    {
+      "assignment_id": "contador-texto-accessibility-expansion",
+      "universe": "Football Legends",
+      "created_at": "2026-04-22T19:33:36.853+02:00",
+      "team_size": 6
+    }
+  ],
+  "assignment_cast_snapshots": {
+    "contador-texto-initial-cast": {
+      "created_at": "2026-04-22T19:28:04.825+02:00",
+      "universe": "Football Legends",
+      "members": [
+        "Pele",
+        "Messi",
+        "Maradona",
+        "Cruyff",
+        "Ronaldo"
+      ]
+    },
+    "contador-texto-accessibility-expansion": {
+      "created_at": "2026-04-22T19:33:36.853+02:00",
+      "universe": "Football Legends",
+      "members": [
+        "Pele",
+        "Messi",
+        "Maradona",
+        "Zidane",
+        "Cruyff",
+        "Ronaldo"
+      ]
+    }
+  }
+}

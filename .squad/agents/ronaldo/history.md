@@ -1,0 +1,138 @@
+# Project Context
+
+- **Owner:** Elbrinner da Silva Fernandes
+- **Project:** contador-texto
+- **Product:** Aplicacion web con Angular 21 y foco fuerte en UX
+- **Stack:** Angular 21, TypeScript, UX/UI
+- **Created:** 2026-04-22T19:28:04.825+02:00
+
+## Learnings
+
+- Day 1: Hired as Tester for the Angular 21 application.
+- Quality expectations include UX-critical flows, not only technical correctness.
+- Day 2 (Brainstorm): User trust in *count accuracy* is the core product value. Edge cases with Unicode/emoji/multi-byte chars are high-risk. Visibility into verification status (confidence badge) converts abstract accuracy into user-facing reliability.
+- MVP scaffold currently stops at Angular app bootstrap files; `src/app/services/metrics-computation.service.ts` and the supporting `models/` + `utils/` contracts are not in the workspace yet.
+- T008 now lives in `src/app/services/metrics-computation.service.spec.ts` as a contract-first pending suite that locks the orchestration responsibilities before Cruyff lands the service.
+- The orchestration boundary must stay focused on composing normalization, token estimation, and metrics calculation while components remain free of metric logic.
+- US1 test batch T010/T011 is also contract-first: `src/app/services/text-analysis-store.service.spec.ts` and `src/app/components/analysis-shell/analysis-shell.component.spec.ts` currently define pending behavior because the store and shell implementation files are not in the repo yet.
+- The shell contract is strict about composition only: `/` must render `analysis-shell`, which hosts `text-input-panel` and `metrics-panel` through a shared store instead of direct panel coupling.
+- Store tests lock three early expectations for T015/T017: predictable empty-state analysis, derived recomputation via `MetricsComputationService`, and a single controlled write boundary for source text.
+- T008 executable coverage now lives in `src/app/services/metrics-computation.service.spec.ts` with custom `TOKEN_ESTIMATOR` overrides to verify normalization, zero-state handling, and frozen orchestration snapshots.
+- T018 extends `src/app/services/text-analysis-store.service.spec.ts` with API-surface checks (`updateText` as the lone public mutator), whitespace-only recomputation coverage, and read-only projection assertions against frozen service snapshots.
+- `src/app/utils/metrics-calculator.ts` now freezes returned metrics, nested token estimates, and extensions arrays so store projections can be asserted as truly read-only instead of TypeScript-only promises.
+
+## Team Updates — 2026-04-22 Brainstorm Session
+
+**Cross-Agent Dependencies Identified:**
+- **Cruyff (Backend):** TokenEstimator integration + confidence scoring implementation
+- **Maradona (UX):** Confidence badge design + tooltip content for user transparency
+- **Ralph (Coordination):** Automated test runner integration in CI/CD pipeline
+
+**Test Strategy Coordination:** Create dataset with emoji, combining characters, non-Latin scripts for baseline validation against OpenAI tokenizer
+
+## Task Allocation — 2026-04-22T21:47:14Z
+
+**Assigned:** T008, T010, T011 (MVP Baseline)  
+**Status:** Allocated → Ready pending token service  
+**Prerequisite:** Cruyff Token Service (T004-T007) for test validation  
+**Parallel Track:** Zidane a11y validation on T011  
+
+**Implementation Order:** 
+1. Create differential verification baseline (dataset)
+2. Integrate Cruyff token service
+3. Implement confidence badge validation
+4. NVDA/JAWS screen reader testing (parallel with Zidane)
+
+## Setup Handoff — 2026-04-22T22:03:43Z
+
+**Handoff Status:** ✓ Ready to Start (T008 blocked until Cruyff T007)  
+**Context:** Messi batch complete. Cruyff T004-T007 active. Your T008 begins once token service is available.  
+**Blocking Task:** Cruyff T004-T007 (token service API definition + default implementation)
+
+**Coordination:** Watch for Cruyff TokenEstimator service completion. Once available, implement differential verification suite immediately.
+
+**Parallel:** Zidane works a11y validation on T011 simultaneously — coordinate screen reader testing protocols.
+
+## Foundation Completion — 2026-04-22T22:10:09Z
+
+**Cruyff Status:** ✓ SHIPPED (T004–T007)  
+**Your Readiness:** Ready to begin T010–T011  
+
+**What's Now Available:**
+- MetricsComputationService orchestration live
+- Token estimation service API surface final
+- Domain input & metrics contracts locked
+- Pure text-analysis helpers ready for testing
+
+**Next Steps (in order):**
+1. **T010:** Store tests (fail-first contract-driving)
+   - Contract: MetricsComputationService public surface
+   - Focus: State management via signals; user input flow
+2. **T011:** Shell composition tests (fail-first a11y posture)
+   - Contract: Shell layout + component hierarchy
+   - Focus: ARIA live regions, keyboard navigation
+   - Parallel: Zidane a11y validation (NVDA/JAWS)
+
+**Critical Detail:** Your T008 contract-first pending spec is now ready for Cruyff's real metrics-computation service implementation. Expected executable unit tests once your T010–T011 establish the orchestration boundary.
+
+**Next Gate:** Manual validation of `/` route composition (test suite passing, shell responsive, input accessible)
+
+## Allocation Review & Backlog Sequencing — 2026-04-22T22:25:11Z
+
+**Ralph (Work Monitor) Validation:** ✓ Complete  
+**Pele (Lead) Execution Plan:** ✓ Validated  
+
+**Your Batch Assignment:** **Batch 1 (Immediate) — T008 + T018-T019**
+- **T008:** Orchestration service unit tests (confidence gate on metrics-computation.service.ts)
+- **T018:** Extend store behavior tests for single-write, read-only projections  
+- **T019:** Input-to-metrics interaction coverage in shell
+
+**Duration:** ~1 day  
+**Parallelization:** All three independent; can run in parallel  
+**Gate:** None (test-first; fail to guide implementation)  
+
+**Batch 2 Prep:** Cruyff + Messi will handle T020-T023 (US2 implementation) once T018-T019 tests are written. Your T008 + test suite clears the confidence blocker before boundary refinements.
+
+**Risk Guardrail:** If T008 reveals architectural issues in orchestration service, resolve them before proceeding to US2. ~1 day max recovery.
+
+## Allocation Review & Backlog Sequencing — 2026-04-22T22:25:11Z
+
+**Ralph (Work Monitor) Validation:** ✓ Complete  
+**Pele (Lead) Execution Plan:** ✓ Validated  
+
+**Your Batch Assignment:** **Batch 1 (Immediate) — T008 + T018-T019**
+- **T008:** Orchestration service unit tests (confidence gate on metrics-computation.service.ts)
+- **T018:** Extend store behavior tests for single-write, read-only projections  
+- **T019:** Input-to-metrics interaction coverage in shell
+
+**Duration:** ~1 day  
+**Parallelization:** All three independent; can run in parallel  
+**Gate:** None (test-first; fail to guide implementation)  
+
+**Batch 2 Prep:** Cruyff + Messi will handle T020-T023 (US2 implementation) once T018-T019 tests are written. Your T008 + test suite clears the confidence blocker before boundary refinements.
+
+**Risk Guardrail:** If T008 reveals architectural issues in orchestration service, resolve them before proceeding to US2. ~1 day max recovery.
+
+**Immediate Action:** You are ready to spawn and begin T008, T018, T019 now.
+
+## Final Delivery Closeout — 2026-04-22T22:50:26Z
+
+**Phase:** Phase 5 (Validation & Sign-Off)  
+**Status:** T030 COMPLETE ✅
+
+**All Validation Gates Passed:**
+- ✅ Tests: 19/19 passing (metrics-computation, store, shell, app)
+- ✅ Lint: Zero violations (all source files)
+- ✅ Build: 232.32 kB uncompressed, 63.18 kB gzipped
+- ✅ Architecture: 11/11 UI contracts verified
+- ✅ Accessibility: WCAG 2.1 Level AA baseline achieved
+- ✅ Responsive: Desktop/tablet/mobile layouts validated
+
+**Orchestration Logs Written:**
+- 2026-04-22T22-50-26Z-ronaldo.md (T030-T032 summary)
+- 2026-04-22T22-50-26Z-messi.md (T031-T032 lint/build)
+- 2026-04-22T22-50-26Z-zidane.md (T033 accessibility validation)
+- 2026-04-22T22-50-26Z-pele.md (T034 documentation sign-off)
+
+**Status:** READY FOR PRODUCTION
+

@@ -1,0 +1,10 @@
+docs: scribe workflow - issue sync orchestration
+
+- Merge decision inbox into decisions.md
+- Record orchestration log for issue sync operation
+- Record session log for scribe actions
+- Clean up inbox entries (deduplicated)
+
+Directive: Keep tasks.md and GitHub issues synchronized
+
+Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
