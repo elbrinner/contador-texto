@@ -66,9 +66,9 @@ description: "Task list for initial application architecture implementation"
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create the shell component in `src/app/components/analysis-shell/analysis-shell.component.ts`, `src/app/components/analysis-shell/analysis-shell.component.html`, and `src/app/components/analysis-shell/analysis-shell.component.css` (GitHub: #12)
-- [ ] T013 [P] [US1] Create the text input component in `src/app/components/text-input-panel/text-input-panel.component.ts`, `src/app/components/text-input-panel/text-input-panel.component.html`, and `src/app/components/text-input-panel/text-input-panel.component.css` (GitHub: #13)
-- [ ] T014 [P] [US1] Create the metrics panel component in `src/app/components/metrics-panel/metrics-panel.component.ts`, `src/app/components/metrics-panel/metrics-panel.component.html`, and `src/app/components/metrics-panel/metrics-panel.component.css` (GitHub: #14)
+- [ ] T012 [P] [US1] Create the shell component with responsive layout handoff in `src/app/components/analysis-shell/analysis-shell.component.ts`, `src/app/components/analysis-shell/analysis-shell.component.html`, and `src/app/components/analysis-shell/analysis-shell.component.css` (GitHub: #12)
+- [ ] T013 [P] [US1] Create the text input component with accessible labeling and focus behavior in `src/app/components/text-input-panel/text-input-panel.component.ts`, `src/app/components/text-input-panel/text-input-panel.component.html`, and `src/app/components/text-input-panel/text-input-panel.component.css` (GitHub: #13)
+- [ ] T014 [P] [US1] Create the metrics panel component with accessible output semantics in `src/app/components/metrics-panel/metrics-panel.component.ts`, `src/app/components/metrics-panel/metrics-panel.component.html`, and `src/app/components/metrics-panel/metrics-panel.component.css` (GitHub: #14)
 - [ ] T015 [US1] Implement the Signals store service in `src/app/services/text-analysis-store.service.ts` (GitHub: #15)
 - [ ] T016 [US1] Wire the `/` route and root composition in `src/app/app.routes.ts` and `src/app/app.component.ts` (GitHub: #16)
 - [ ] T017 [US1] Connect `text-input-panel` and `metrics-panel` through the store in `src/app/components/analysis-shell/analysis-shell.component.ts` (GitHub: #17)
@@ -105,10 +105,10 @@ description: "Task list for initial application architecture implementation"
 
 **Independent Test**: Revisar que README, ADR, guía técnica y nota de release describan la estructura base y que la quickstart permita validar la implementación y la revisión visual.
 
-### Tests for User Story 3 ⚠️
+### Validation for User Story 3 ⚠️
 
-- [ ] T024 [P] [US3] Add an architecture smoke test checklist in `specs/001-arquitectura-inicial/quickstart.md` (GitHub: #24)
-- [ ] T025 [P] [US3] Add review assertions for architecture documentation in `specs/001-arquitectura-inicial/contracts/ui-architecture.md` (GitHub: #25)
+- [ ] T024 [P] [US3] Prepare an architecture smoke-check checklist in `specs/001-arquitectura-inicial/quickstart.md` (GitHub: #24)
+- [ ] T025 [P] [US3] Prepare documentation review assertions in `specs/001-arquitectura-inicial/contracts/ui-architecture.md` (GitHub: #25)
 
 ### Implementation for User Story 3
 
@@ -128,7 +128,7 @@ description: "Task list for initial application architecture implementation"
 - [ ] T030 [P] Run `ng test` from `package.json` for `src/app/services/text-analysis-store.service.spec.ts`, `src/app/services/metrics-computation.service.spec.ts`, and `src/app/components/analysis-shell/analysis-shell.component.spec.ts` (GitHub: #30)
 - [ ] T031 [P] Run `ng lint` from `package.json` against `angular.json`, `src/app/components/analysis-shell/analysis-shell.component.ts`, and `src/app/services/text-analysis-store.service.ts` (GitHub: #31)
 - [ ] T032 [P] Run `ng build` from `package.json` using `angular.json`, `src/main.ts`, and `src/app/app.config.ts` (GitHub: #32)
-- [ ] T033 Validate the shell and responsive layout in Simple Browser against `specs/001-arquitectura-inicial/quickstart.md` (GitHub: #33)
+- [ ] T033 Validate the shell, accessibility behavior, and responsive layout in Simple Browser against `specs/001-arquitectura-inicial/quickstart.md` (GitHub: #33)
 - [ ] T034 Review updated documentation in `README.md`, `docs/adr/0001-arquitectura-inicial.md`, `docs/architecture/contador-texto.md`, and `docs/releases/2026-04-22-arquitectura-inicial.md` (GitHub: #34)
 
 ---
