@@ -17,6 +17,9 @@
 - US1 test batch T010/T011 is also contract-first: `src/app/services/text-analysis-store.service.spec.ts` and `src/app/components/analysis-shell/analysis-shell.component.spec.ts` currently define pending behavior because the store and shell implementation files are not in the repo yet.
 - The shell contract is strict about composition only: `/` must render `analysis-shell`, which hosts `text-input-panel` and `metrics-panel` through a shared store instead of direct panel coupling.
 - Store tests lock three early expectations for T015/T017: predictable empty-state analysis, derived recomputation via `MetricsComputationService`, and a single controlled write boundary for source text.
+- T008 executable coverage now lives in `src/app/services/metrics-computation.service.spec.ts` with custom `TOKEN_ESTIMATOR` overrides to verify normalization, zero-state handling, and frozen orchestration snapshots.
+- T018 extends `src/app/services/text-analysis-store.service.spec.ts` with API-surface checks (`updateText` as the lone public mutator), whitespace-only recomputation coverage, and read-only projection assertions against frozen service snapshots.
+- `src/app/utils/metrics-calculator.ts` now freezes returned metrics, nested token estimates, and extensions arrays so store projections can be asserted as truly read-only instead of TypeScript-only promises.
 
 ## Team Updates — 2026-04-22 Brainstorm Session
 
@@ -92,5 +95,44 @@
 
 **Risk Guardrail:** If T008 reveals architectural issues in orchestration service, resolve them before proceeding to US2. ~1 day max recovery.
 
+## Allocation Review & Backlog Sequencing — 2026-04-22T22:25:11Z
+
+**Ralph (Work Monitor) Validation:** ✓ Complete  
+**Pele (Lead) Execution Plan:** ✓ Validated  
+
+**Your Batch Assignment:** **Batch 1 (Immediate) — T008 + T018-T019**
+- **T008:** Orchestration service unit tests (confidence gate on metrics-computation.service.ts)
+- **T018:** Extend store behavior tests for single-write, read-only projections  
+- **T019:** Input-to-metrics interaction coverage in shell
+
+**Duration:** ~1 day  
+**Parallelization:** All three independent; can run in parallel  
+**Gate:** None (test-first; fail to guide implementation)  
+
+**Batch 2 Prep:** Cruyff + Messi will handle T020-T023 (US2 implementation) once T018-T019 tests are written. Your T008 + test suite clears the confidence blocker before boundary refinements.
+
+**Risk Guardrail:** If T008 reveals architectural issues in orchestration service, resolve them before proceeding to US2. ~1 day max recovery.
+
 **Immediate Action:** You are ready to spawn and begin T008, T018, T019 now.
+
+## Final Delivery Closeout — 2026-04-22T22:50:26Z
+
+**Phase:** Phase 5 (Validation & Sign-Off)  
+**Status:** T030 COMPLETE ✅
+
+**All Validation Gates Passed:**
+- ✅ Tests: 19/19 passing (metrics-computation, store, shell, app)
+- ✅ Lint: Zero violations (all source files)
+- ✅ Build: 232.32 kB uncompressed, 63.18 kB gzipped
+- ✅ Architecture: 11/11 UI contracts verified
+- ✅ Accessibility: WCAG 2.1 Level AA baseline achieved
+- ✅ Responsive: Desktop/tablet/mobile layouts validated
+
+**Orchestration Logs Written:**
+- 2026-04-22T22-50-26Z-ronaldo.md (T030-T032 summary)
+- 2026-04-22T22-50-26Z-messi.md (T031-T032 lint/build)
+- 2026-04-22T22-50-26Z-zidane.md (T033 accessibility validation)
+- 2026-04-22T22-50-26Z-pele.md (T034 documentation sign-off)
+
+**Status:** READY FOR PRODUCTION
 

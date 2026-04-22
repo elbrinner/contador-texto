@@ -20,6 +20,11 @@
 - MVP shell batch now uses `src/app/app.component.ts` only for page framing, with `src/app/components/analysis-shell/analysis-shell.component.*` owning feature composition.
 - Presentational contracts are set: `text-input-panel` exposes a single `valueChange` output around a controlled textarea, and `metrics-panel` consumes a full `TextAnalysisMetrics` snapshot plus `isPending`.
 - Key MVP UI paths: `src/app/components/text-input-panel/`, `src/app/components/metrics-panel/`, and `src/app/components/analysis-shell/`.
+- T019 is now covered with executable shell interaction tests that use the real `TextAnalysisStoreService` plus a stubbed `MetricsComputationService` to verify textarea input flows into the metrics snapshot contract without panel-to-panel coupling.
+- The safest shell integration pattern here is: exercise the real textarea DOM event, keep `analysis-shell` as pure composition, and assert changes through `TextAnalysisStoreService` projections plus `MetricsPanelComponent` inputs in `src/app/components/analysis-shell/analysis-shell.component.spec.ts`.
+- T021 refinement keeps `TextAnalysisStoreService` as the only text write boundary by storing the raw draft in its own private signal and exposing only read-only projections.
+- `src/app/services/text-analysis-store.service.ts` now separates `sourceText` ownership from the computed analysis snapshot so the shell can stay ergonomic without letting downstream computation redefine the user's exact textarea value.
+- `src/app/services/text-analysis-store.service.spec.ts` now guards that boundary explicitly with a contract test where the computation snapshot reshapes its own `input.text`, but the store still preserves the original draft.
 
 ## Team Updates — 2026-04-22 Brainstorm Session
 
@@ -83,5 +88,28 @@
 
 **Start Condition:** Await Pele approval of Cruyff's T020 models (early-mid Batch 2)
 
+**Start Condition:** Await Pele approval of Cruyff's T020 models (early-mid Batch 2)
+
 **Immediate Action:** Hold T009 at current state. Watch for Ronaldo T018-T019 test completion. Once tests lock shell contract, you begin T012-T014 implementation.
+
+## Final Delivery Closeout — 2026-04-22T22:50:26Z
+
+**Phase:** Phase 5 (Validation & Sign-Off)  
+**Status:** T031 & T032 COMPLETE ✅
+
+**All Validation Gates Passed:**
+- ✅ Tests: 19/19 passing (Ronaldo T030)
+- ✅ Lint: Zero violations (T031 complete)
+- ✅ Build: 232.32 kB uncompressed, 63.18 kB gzipped (T032 complete)
+- ✅ Architecture: 11/11 UI contracts verified
+- ✅ Accessibility: WCAG 2.1 Level AA baseline achieved (Zidane T033)
+- ✅ Responsive: Desktop/tablet/mobile layouts validated
+
+**Orchestration Logs Written:**
+- 2026-04-22T22-50-26Z-ronaldo.md (T030-T032 summary)
+- 2026-04-22T22-50-26Z-messi.md (T031-T032 lint/build)
+- 2026-04-22T22-50-26Z-zidane.md (T033 accessibility validation)
+- 2026-04-22T22-50-26Z-pele.md (T034 documentation sign-off)
+
+**Status:** READY FOR PRODUCTION
 

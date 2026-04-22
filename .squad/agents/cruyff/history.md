@@ -13,6 +13,10 @@
 - Foundation batch shipped in `src/app/models`, `src/app/utils`, and `src/app/services` with flat metrics contracts plus `NormalizedTextAnalysisInput` as the service-to-utils handoff.
 - `src/app/services/metrics-computation.service.ts` owns orchestration only; normalization and metric math stay pure in `src/app/utils/`.
 - Token estimation is pluggable through `TOKEN_ESTIMATOR`, defaulting to the heuristic in `src/app/utils/token-estimator.ts` for browser-only operation and future feature-flag swaps.
+- US2 batch now encodes ownership explicitly: `src/app/models/architectural-area.model.ts` maps areas to flow stages, `src/app/models/flow-stage.model.ts` lists owner artifacts/supporting areas, and `src/app/models/evolution-rule.model.ts` records impacted areas/stages for each extension path.
+- `src/app/models/text-analysis-metrics.model.ts` now owns reusable metric-entry and breakdown factories so future metric cards can grow from shared contracts instead of component-local mapping.
+- `src/app/utils/metrics-calculator.ts` is the only place that assembles metric breakdown groups; `src/app/components/metrics-panel/metrics-panel.component.ts` now renders those shared groups without redefining labels or descriptions.
+- Repo validation for this batch uses `npm test -- --watch=false`, `npm run lint`, and `npm run build`; adding browser-specific test flags breaks this Angular/Vitest setup.
 
 ## Brainstorm Session (2026-04-22)
 
