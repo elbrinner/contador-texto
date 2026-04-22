@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+.metric-card {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-1px);
+}

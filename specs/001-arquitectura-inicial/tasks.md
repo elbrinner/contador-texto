@@ -28,9 +28,9 @@ description: "Task list for initial application architecture implementation"
 
 **Purpose**: Inicializar el workspace Angular y la base de estilos/configuracion que toda la arquitectura necesita.
 
-- [ ] T001 Initialize Angular 21 workspace configuration in `package.json`, `angular.json`, `tsconfig.json`, and `tsconfig.app.json` (GitHub: #1)
-- [ ] T002 Configure TailwindCSS pipeline in `tailwind.config.js`, `postcss.config.js`, and `src/styles.css` (GitHub: #2)
-- [ ] T003 [P] Bootstrap the standalone application entry in `src/main.ts`, `src/app/app.config.ts`, and `src/app/app.routes.ts` (GitHub: #3)
+- [x] T001 Initialize Angular 21 workspace configuration in `package.json`, `angular.json`, `tsconfig.json`, and `tsconfig.app.json` (GitHub: #1)
+- [x] T002 Configure TailwindCSS pipeline in `tailwind.config.js`, `postcss.config.js`, and `src/styles.css` (GitHub: #2)
+- [x] T003 [P] Bootstrap the standalone application entry in `src/main.ts`, `src/app/app.config.ts`, and `src/app/app.routes.ts` (GitHub: #3)
 
 ---
 
@@ -40,12 +40,12 @@ description: "Task list for initial application architecture implementation"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T004 Create domain input and metrics contracts in `src/app/models/text-analysis-input.model.ts` and `src/app/models/text-analysis-metrics.model.ts` (GitHub: #4)
-- [ ] T005 [P] Create architecture boundary contracts in `src/app/models/architectural-area.model.ts`, `src/app/models/flow-stage.model.ts`, `src/app/models/evolution-rule.model.ts`, and `src/app/models/quality-gate.model.ts` (GitHub: #5)
-- [ ] T006 [P] Implement pure text-analysis helpers in `src/app/utils/text-normalizer.ts`, `src/app/utils/token-estimator.ts`, and `src/app/utils/metrics-calculator.ts` (GitHub: #6)
-- [ ] T007 Implement the metrics orchestration service in `src/app/services/metrics-computation.service.ts` (GitHub: #7)
+- [x] T004 Create domain input and metrics contracts in `src/app/models/text-analysis-input.model.ts` and `src/app/models/text-analysis-metrics.model.ts` (GitHub: #4)
+- [x] T005 [P] Create architecture boundary contracts in `src/app/models/architectural-area.model.ts`, `src/app/models/flow-stage.model.ts`, `src/app/models/evolution-rule.model.ts`, and `src/app/models/quality-gate.model.ts` (GitHub: #5)
+- [x] T006 [P] Implement pure text-analysis helpers in `src/app/utils/text-normalizer.ts`, `src/app/utils/token-estimator.ts`, and `src/app/utils/metrics-calculator.ts` (GitHub: #6)
+- [x] T007 Implement the metrics orchestration service in `src/app/services/metrics-computation.service.ts` (GitHub: #7)
 - [ ] T008 [P] Add unit tests for the orchestration service in `src/app/services/metrics-computation.service.spec.ts` (GitHub: #8)
-- [ ] T009 Establish the root app host and layout handoff in `src/app/app.component.ts` (GitHub: #9)
+- [x] T009 Establish the root app host and layout handoff in `src/app/app.component.ts` (GitHub: #9)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -61,17 +61,17 @@ description: "Task list for initial application architecture implementation"
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T010 [P] [US1] Add unit tests for the Signals store in `src/app/services/text-analysis-store.service.spec.ts` (GitHub: #10)
-- [ ] T011 [P] [US1] Add shell composition tests in `src/app/components/analysis-shell/analysis-shell.component.spec.ts` (GitHub: #11)
+- [x] T010 [P] [US1] Add unit tests for the Signals store in `src/app/services/text-analysis-store.service.spec.ts` (GitHub: #10)
+- [x] T011 [P] [US1] Add shell composition tests in `src/app/components/analysis-shell/analysis-shell.component.spec.ts` (GitHub: #11)
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create the shell component with responsive layout handoff in `src/app/components/analysis-shell/analysis-shell.component.ts`, `src/app/components/analysis-shell/analysis-shell.component.html`, and `src/app/components/analysis-shell/analysis-shell.component.css` (GitHub: #12)
-- [ ] T013 [P] [US1] Create the text input component with accessible labeling and focus behavior in `src/app/components/text-input-panel/text-input-panel.component.ts`, `src/app/components/text-input-panel/text-input-panel.component.html`, and `src/app/components/text-input-panel/text-input-panel.component.css` (GitHub: #13)
-- [ ] T014 [P] [US1] Create the metrics panel component with accessible output semantics in `src/app/components/metrics-panel/metrics-panel.component.ts`, `src/app/components/metrics-panel/metrics-panel.component.html`, and `src/app/components/metrics-panel/metrics-panel.component.css` (GitHub: #14)
-- [ ] T015 [US1] Implement the Signals store service in `src/app/services/text-analysis-store.service.ts` (GitHub: #15)
-- [ ] T016 [US1] Wire the `/` route and root composition in `src/app/app.routes.ts` and `src/app/app.component.ts` (GitHub: #16)
-- [ ] T017 [US1] Connect `text-input-panel` and `metrics-panel` through the store in `src/app/components/analysis-shell/analysis-shell.component.ts` (GitHub: #17)
+- [x] T012 [P] [US1] Create the shell component with responsive layout handoff in `src/app/components/analysis-shell/analysis-shell.component.ts`, `src/app/components/analysis-shell/analysis-shell.component.html`, and `src/app/components/analysis-shell/analysis-shell.component.css` (GitHub: #12)
+- [x] T013 [P] [US1] Create the text input component with accessible labeling and focus behavior in `src/app/components/text-input-panel/text-input-panel.component.ts`, `src/app/components/text-input-panel/text-input-panel.component.html`, and `src/app/components/text-input-panel/text-input-panel.component.css` (GitHub: #13)
+- [x] T014 [P] [US1] Create the metrics panel component with accessible output semantics in `src/app/components/metrics-panel/metrics-panel.component.ts`, `src/app/components/metrics-panel/metrics-panel.component.html`, and `src/app/components/metrics-panel/metrics-panel.component.css` (GitHub: #14)
+- [x] T015 [US1] Implement the Signals store service in `src/app/services/text-analysis-store.service.ts` (GitHub: #15)
+- [x] T016 [US1] Wire the `/` route and root composition in `src/app/app.routes.ts` and `src/app/app.component.ts` (GitHub: #16)
+- [x] T017 [US1] Connect `text-input-panel` and `metrics-panel` through the store in `src/app/components/analysis-shell/analysis-shell.component.ts` (GitHub: #17)
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 

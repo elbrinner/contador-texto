@@ -1,0 +1,48 @@
+<section
+  aria-labelledby="metrics-panel-title"
+  class="rounded-3xl border border-slate-200 bg-slate-950 p-5 text-slate-50 shadow-sm lg:sticky lg:top-8"
+>
+  <div class="flex flex-wrap items-start justify-between gap-3">
+    <div class="space-y-1">
+      <h3 id="metrics-panel-title" class="text-lg font-semibold">{{ heading() }}</h3>
+      <p class="max-w-sm text-sm leading-6 text-slate-300">
+        {{ caption() }}
+      </p>
+    </div>
+
+    @if (isPending()) {
+      <span
+        class="inline-flex items-center rounded-full border border-cyan-400/40 bg-cyan-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200"
+      >
+        placeholder
+      </span>
+    }
+  </div>
+
+  <p class="sr-only" aria-live="polite">{{ liveSummary() }}</p>
+
+  <dl class="mt-5 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+    @for (card of primaryCards(); track card.key) {
+      <div class="metric-card rounded-2xl border border-white/10 bg-white/5 p-4">
+        <dt class="text-sm font-medium text-slate-300">{{ card.label }}</dt>
+        <dd class="mt-3 text-3xl font-semibold tracking-tight text-white">{{ card.value }}</dd>
+        <p class="mt-2 text-sm leading-6 text-slate-400">{{ card.description }}</p>
+      </div>
+    }
+  </dl>
+
+  <dl class="mt-3 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+    @for (card of secondaryCards(); track card.key) {
+      <div class="metric-card rounded-2xl border border-white/10 bg-slate-900/70 p-4">
+        <dt class="text-sm font-medium text-slate-300">{{ card.label }}</dt>
+        <dd class="mt-3 text-2xl font-semibold tracking-tight text-white">{{ card.value }}</dd>
+        <p class="mt-2 text-sm leading-6 text-slate-400">{{ card.description }}</p>
+      </div>
+    }
+  </dl>
+
+  <div class="mt-5 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm leading-6 text-slate-300">
+    Método de estimación activo:
+    <strong class="font-semibold text-white">{{ metrics().estimatedTokens.method }}</strong>
+  </div>
+</section>

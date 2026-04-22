@@ -17,6 +17,9 @@
 - Initial setup batch shipped the Angular 21 standalone workspace at the repo root with TailwindCSS, Angular ESLint, and Vitest-based `ng test`.
 - Key setup files now live in `package.json`, `angular.json`, `tailwind.config.js`, `postcss.config.js`, `src/main.ts`, and `src/app/app.config.ts`.
 - The bootstrap host is currently a lightweight standalone `src/app/app.component.ts` placeholder so Cruyff can start services/models without waiting for the final shell handoff in T009/T016.
+- MVP shell batch now uses `src/app/app.component.ts` only for page framing, with `src/app/components/analysis-shell/analysis-shell.component.*` owning feature composition.
+- Presentational contracts are set: `text-input-panel` exposes a single `valueChange` output around a controlled textarea, and `metrics-panel` consumes a full `TextAnalysisMetrics` snapshot plus `isPending`.
+- Key MVP UI paths: `src/app/components/text-input-panel/`, `src/app/components/metrics-panel/`, and `src/app/components/analysis-shell/`.
 
 ## Team Updates — 2026-04-22 Brainstorm Session
 

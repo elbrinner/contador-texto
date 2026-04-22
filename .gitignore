@@ -5,3 +5,9 @@
 .squad/sessions/
 # Squad: SubSquad activation file (local to this machine)
 .squad-workstream
+
+# Angular / Node workspace outputs
+node_modules/
+dist/
+.angular/
+coverage/
