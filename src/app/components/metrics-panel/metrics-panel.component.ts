@@ -1,13 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
-import { TextAnalysisMetrics } from '../../models/text-analysis-metrics.model';
-
-interface MetricCardViewModel {
-  readonly key: string;
-  readonly label: string;
-  readonly value: number;
-  readonly description: string;
-}
+import { MetricEntry, TextAnalysisMetrics } from '../../models/text-analysis-metrics.model';
 
 @Component({
   selector: 'app-metrics-panel',
@@ -21,55 +14,8 @@ export class MetricsPanelComponent {
   readonly metrics = input.required<TextAnalysisMetrics>();
   readonly isPending = input(false);
 
-  readonly primaryCards = computed<readonly MetricCardViewModel[]>(() => {
-    const metrics = this.metrics();
-
-    return [
-      {
-        key: 'words',
-        label: 'Palabras',
-        value: metrics.words,
-        description: 'Conteo de palabras normalizadas.',
-      },
-      {
-        key: 'characters',
-        label: 'Caracteres',
-        value: metrics.characters,
-        description: 'Todos los caracteres, incluidos espacios.',
-      },
-      {
-        key: 'tokens',
-        label: 'Tokens',
-        value: metrics.estimatedTokens.tokens,
-        description: 'Estimación heurística para modelos de IA.',
-      },
-    ];
-  });
-
-  readonly secondaryCards = computed<readonly MetricCardViewModel[]>(() => {
-    const metrics = this.metrics();
-
-    return [
-      {
-        key: 'charactersExcludingWhitespace',
-        label: 'Caracteres sin espacios',
-        value: metrics.charactersExcludingWhitespace,
-        description: 'Útil para revisar contenido neto.',
-      },
-      {
-        key: 'lines',
-        label: 'Líneas',
-        value: metrics.lines,
-        description: 'Cada salto de línea cuenta.',
-      },
-      {
-        key: 'paragraphs',
-        label: 'Párrafos',
-        value: metrics.paragraphs,
-        description: 'Bloques separados por líneas en blanco.',
-      },
-    ];
-  });
+  readonly primaryCards = computed<readonly MetricEntry<number>[]>(() => this.metrics().breakdown.primary);
+  readonly secondaryCards = computed<readonly MetricEntry<number>[]>(() => this.metrics().breakdown.secondary);
 
   readonly liveSummary = computed(() => {
     const metrics = this.metrics();

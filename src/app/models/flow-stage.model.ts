@@ -13,6 +13,9 @@ export interface FlowStage {
   readonly inputContract: string;
   readonly outputContract: string;
   readonly ownerArea: ArchitecturalAreaName;
+  readonly ownerArtifacts: readonly string[];
+  readonly supportingAreas?: readonly ArchitecturalAreaName[];
+  readonly extensionGuideline: string;
   readonly uiSurface?: string;
 }
 
@@ -24,6 +27,13 @@ export const FLOW_STAGES: readonly FlowStage[] = [
     inputContract: 'Raw browser text event payload',
     outputContract: 'TextAnalysisInput',
     ownerArea: 'component',
+    ownerArtifacts: [
+      'src/app/components/text-input-panel/text-input-panel.component.ts',
+      'src/app/components/analysis-shell/analysis-shell.component.ts',
+    ],
+    supportingAreas: ['model'],
+    extensionGuideline:
+      'Add new capture variants by emitting the same text contract into the store instead of coupling panels directly.',
     uiSurface: 'text-input-panel',
   },
   {
@@ -33,6 +43,10 @@ export const FLOW_STAGES: readonly FlowStage[] = [
     inputContract: 'TextAnalysisInput',
     outputContract: 'NormalizedTextAnalysisInput',
     ownerArea: 'utility',
+    ownerArtifacts: ['src/app/utils/text-normalizer.ts'],
+    supportingAreas: ['model'],
+    extensionGuideline:
+      'Any new normalization step must stay pure and preserve the raw input alongside the normalized handoff.',
   },
   {
     id: 'compute-metrics',
@@ -41,6 +55,10 @@ export const FLOW_STAGES: readonly FlowStage[] = [
     inputContract: 'NormalizedTextAnalysisInput',
     outputContract: 'TextAnalysisMetrics',
     ownerArea: 'service',
+    ownerArtifacts: ['src/app/services/metrics-computation.service.ts'],
+    supportingAreas: ['utility', 'model'],
+    extensionGuideline:
+      'Add metrics by expanding the shared metrics contract and calculator, then let the service orchestrate the unchanged flow.',
   },
   {
     id: 'present-results',
@@ -49,6 +67,13 @@ export const FLOW_STAGES: readonly FlowStage[] = [
     inputContract: 'TextAnalysisMetrics',
     outputContract: 'Read-only metrics view model',
     ownerArea: 'component',
+    ownerArtifacts: [
+      'src/app/components/analysis-shell/analysis-shell.component.ts',
+      'src/app/components/metrics-panel/metrics-panel.component.ts',
+    ],
+    supportingAreas: ['service', 'model'],
+    extensionGuideline:
+      'Reuse shared metric snapshots for new layouts so presentation can grow without changing computation boundaries.',
     uiSurface: 'metrics-panel',
   },
 ] as const;

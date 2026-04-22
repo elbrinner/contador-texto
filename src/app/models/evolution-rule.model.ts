@@ -17,6 +17,8 @@ export interface EvolutionRule {
   readonly scenario: string;
   readonly entryPoint: EvolutionEntryPoint;
   readonly constraint: string;
+  readonly affectedAreas: readonly ArchitecturalAreaName[];
+  readonly affectedFlowStages: readonly FlowStageId[];
   readonly documentationImpact: readonly DocumentationArtifact[];
   readonly requiresVisualValidation: boolean;
   readonly requiredQualityGates: readonly QualityGateName[];
@@ -28,6 +30,8 @@ export const EVOLUTION_RULES: readonly EvolutionRule[] = [
     scenario: 'Add a new derived metric without rewriting shell composition.',
     entryPoint: 'model',
     constraint: 'Introduce the contract first, then update pure utilities and the orchestration service before any component renders it.',
+    affectedAreas: ['model', 'utility', 'service', 'component'],
+    affectedFlowStages: ['normalize-text', 'compute-metrics', 'present-results'],
     documentationImpact: ['technical-architecture-guide', 'ui-architecture-contract'],
     requiresVisualValidation: false,
     requiredQualityGates: ['ng test', 'ng lint', 'ng build'],
@@ -37,6 +41,8 @@ export const EVOLUTION_RULES: readonly EvolutionRule[] = [
     scenario: 'Replace or add a token estimation strategy.',
     entryPoint: 'compute-metrics',
     constraint: 'Swap the TokenEstimator implementation via injection without changing component APIs.',
+    affectedAreas: ['service', 'utility', 'model'],
+    affectedFlowStages: ['compute-metrics'],
     documentationImpact: ['ADR', 'technical-architecture-guide'],
     requiresVisualValidation: false,
     requiredQualityGates: ['ng test', 'ng lint', 'ng build'],
@@ -46,6 +52,8 @@ export const EVOLUTION_RULES: readonly EvolutionRule[] = [
     scenario: 'Add a new layout or projection for the existing metrics.',
     entryPoint: 'present-results',
     constraint: 'Reuse the same TextAnalysisMetrics contract and avoid moving computation into components.',
+    affectedAreas: ['component', 'service', 'model'],
+    affectedFlowStages: ['compute-metrics', 'present-results'],
     documentationImpact: ['README', 'technical-architecture-guide', 'release-notes'],
     requiresVisualValidation: true,
     requiredQualityGates: ['ng test', 'ng lint', 'ng build', 'simple-browser-review', 'docs-update'],

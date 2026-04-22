@@ -543,13 +543,41 @@ onTextChange(event: any) {
 
 ## Documentation & Specifications
 
+This repo uses two upstream methodologies to organize work and ensure alignment before coding:
+
+### Methodology: Spec Kit + Squad + GitHub Copilot CLI
+
+1. **[Spec Kit](https://github.com/github/spec-kit)** — Defines *what* to build  
+   Design artifacts live in `specs/001-arquitectura-inicial/`. Before code changes, specifications clarify requirements, user stories, and acceptance criteria. Prevents scope creep; keeps team aligned.
+
+2. **[Squad](https://github.com/bradygaster/squad)** — Orchestrates *who* builds what  
+   Team roles and coordination live in `.squad/`. Each agent has a charter (role definition), and decisions are logged. Squad ensures task dependencies are clear and cross-agent work doesn't deadlock.
+
+3. **GitHub Copilot CLI** — Executes the design  
+   Coding agents (like you) use this CLI in `--agent` mode to read specs, accept tasks, and deliver code. The CLI is the interface for task automation and agent communication.
+
+**How they work together:**
+```
+Spec Kit clarifies "what"
+    ↓
+Squad assigns "who" and tracks dependencies
+    ↓
+Copilot CLI executes the work (agent reads charter + task, delivers code)
+    ↓
+Loop: refine spec, adjust assignments, deliver incrementally
+```
+
 ### Key Files to Know
 
 | File | Purpose | When to Update |
 |------|---------|-----------------|
 | `README.md` | Project overview, quick start, principles | Architecture changes; new features |
 | `.squad/decisions.md` | All decisions, design rationale, task log | Every significant architectural change |
+| `.squad/agents/{role}/charter.md` | Agent role definition, ownership | When role scope changes |
+| `.squad/agents/{role}/history.md` | Agent learnings and context | After completing batches of work |
 | `specs/001-arquitectura-inicial/spec.md` | Feature requirements, user stories | Initial phase only (mostly frozen) |
+| `specs/001-arquitectura-inicial/plan.md` | Implementation plan and phasing | When major refinements affect timeline |
+| `specs/001-arquitectura-inicial/tasks.md` | Actionable dependency-ordered task list | Before each work batch |
 | `specs/001-arquitectura-inicial/contracts/ui-architecture.md` | Component/service contracts | UI boundary changes |
 | `docs/adr/0001-arquitectura-inicial.md` | Architecture Decision Record | Any architectural evolution |
 | `docs/releases/` | Release notes and changelog | After completing feature phases |

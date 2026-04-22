@@ -1,3 +1,5 @@
+import { NormalizedTextAnalysisInput, TextAnalysisInput } from '../models/text-analysis-input.model';
+
 const WINDOWS_NEWLINE_PATTERN = /\r\n?/gu;
 const BYTE_ORDER_MARK_PATTERN = /^\uFEFF/u;
 const WHITESPACE_SEGMENT_PATTERN = /^\s$/u;
@@ -17,6 +19,15 @@ const wordSegmenter = createSegmenter('word');
 
 export function normalizeText(text: string): string {
   return text.replace(BYTE_ORDER_MARK_PATTERN, '').replace(WINDOWS_NEWLINE_PATTERN, '\n').normalize('NFC');
+}
+
+export function normalizeTextAnalysisInput(
+  input: TextAnalysisInput,
+): NormalizedTextAnalysisInput {
+  return Object.freeze({
+    text: input.text,
+    normalizedText: normalizeText(input.text),
+  });
 }
 
 export function getGraphemes(text: string): readonly string[] {

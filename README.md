@@ -1,6 +1,6 @@
 # Contador Texto
 
-> **Proof of Concept:** This repository demonstrates how to use [Spec Kit](https://github.com/github/copilot-cli) to define features through structured artifacts, and [Squad](https://github.com/github/copilot-cli) to implement them as a coordinated team of AI agents.
+> **Proof of Concept:** This repository demonstrates how to use [Spec Kit](https://github.com/github/spec-kit) to define features through structured artifacts, [Squad](https://github.com/bradygaster/squad) to implement them as a coordinated team of AI agents, and the [GitHub Copilot CLI](https://github.com/github/copilot-cli) as the execution interface for the coding workflow.
 
 A lightweight, accessible text analysis application built with Angular 21. Analyze character counts, word counts, and token estimates in real-time as you write.
 
@@ -28,10 +28,11 @@ npm run build
 
 ## How This Project Works
 
-This proof of concept uses two key methodologies:
+This proof of concept uses a specification-first workflow:
 
-1. **[Spec Kit](https://github.com/github/copilot-cli)** — Define features through structured design artifacts (specifications, plans, tasks, research documents)
-2. **[Squad](https://github.com/github/copilot-cli)** — Implement via a coordinated team of AI agents (each with specialized expertise) that follow the design
+1. **[Spec Kit](https://github.com/github/spec-kit)** — Define features through structured design artifacts (specifications, plans, tasks, research documents)
+2. **[Squad](https://github.com/bradygaster/squad)** — Implement via a coordinated team of AI agents (each with specialized expertise) that follow the design
+3. **[GitHub Copilot CLI](https://github.com/github/copilot-cli)** — Execute the coding workflow, enabling agents to read code, run tests, and iterate on implementation
 
 ### The Workflow
 

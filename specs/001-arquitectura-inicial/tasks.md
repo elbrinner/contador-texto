@@ -44,7 +44,7 @@ description: "Task list for initial application architecture implementation"
 - [x] T005 [P] Create architecture boundary contracts in `src/app/models/architectural-area.model.ts`, `src/app/models/flow-stage.model.ts`, `src/app/models/evolution-rule.model.ts`, and `src/app/models/quality-gate.model.ts` (GitHub: #5)
 - [x] T006 [P] Implement pure text-analysis helpers in `src/app/utils/text-normalizer.ts`, `src/app/utils/token-estimator.ts`, and `src/app/utils/metrics-calculator.ts` (GitHub: #6)
 - [x] T007 Implement the metrics orchestration service in `src/app/services/metrics-computation.service.ts` (GitHub: #7)
-- [ ] T008 [P] Add unit tests for the orchestration service in `src/app/services/metrics-computation.service.spec.ts` (GitHub: #8)
+- [x] T008 [P] Add unit tests for the orchestration service in `src/app/services/metrics-computation.service.spec.ts` (GitHub: #8)
 - [x] T009 Establish the root app host and layout handoff in `src/app/app.component.ts` (GitHub: #9)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
@@ -85,15 +85,15 @@ description: "Task list for initial application architecture implementation"
 
 ### Tests for User Story 2 ⚠️
 
-- [ ] T018 [P] [US2] Extend store behavior tests for single-write and read-only projections in `src/app/services/text-analysis-store.service.spec.ts` (GitHub: #18)
-- [ ] T019 [P] [US2] Add input-to-metrics interaction coverage in `src/app/components/analysis-shell/analysis-shell.component.spec.ts` (GitHub: #19)
+- [x] T018 [P] [US2] Extend store behavior tests for single-write and read-only projections in `src/app/services/text-analysis-store.service.spec.ts` (GitHub: #18)
+- [x] T019 [P] [US2] Add input-to-metrics interaction coverage in `src/app/components/analysis-shell/analysis-shell.component.spec.ts` (GitHub: #19)
 
 ### Implementation for User Story 2
 
-- [ ] T020 [P] [US2] Encode flow ownership and extension metadata in `src/app/models/architectural-area.model.ts`, `src/app/models/flow-stage.model.ts`, and `src/app/models/evolution-rule.model.ts` (GitHub: #20)
-- [ ] T021 [US2] Refine the store API to enforce a single text update entry point in `src/app/services/text-analysis-store.service.ts` (GitHub: #21)
-- [ ] T022 [US2] Refine service-to-utility boundaries in `src/app/services/metrics-computation.service.ts` (GitHub: #22)
-- [ ] T023 [US2] Add extension-ready metric structures in `src/app/models/text-analysis-metrics.model.ts` and `src/app/utils/metrics-calculator.ts` (GitHub: #23)
+- [x] T020 [P] [US2] Encode flow ownership and extension metadata in `src/app/models/architectural-area.model.ts`, `src/app/models/flow-stage.model.ts`, and `src/app/models/evolution-rule.model.ts` (GitHub: #20)
+- [x] T021 [US2] Refine the store API to enforce a single text update entry point in `src/app/services/text-analysis-store.service.ts` (GitHub: #21)
+- [x] T022 [US2] Refine service-to-utility boundaries in `src/app/services/metrics-computation.service.ts` (GitHub: #22)
+- [x] T023 [US2] Add extension-ready metric structures in `src/app/models/text-analysis-metrics.model.ts` and `src/app/utils/metrics-calculator.ts` (GitHub: #23)
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -107,15 +107,15 @@ description: "Task list for initial application architecture implementation"
 
 ### Validation for User Story 3 ⚠️
 
-- [ ] T024 [P] [US3] Prepare an architecture smoke-check checklist in `specs/001-arquitectura-inicial/quickstart.md` (GitHub: #24)
-- [ ] T025 [P] [US3] Prepare documentation review assertions in `specs/001-arquitectura-inicial/contracts/ui-architecture.md` (GitHub: #25)
+- [x] T024 [P] [US3] Prepare an architecture smoke-check checklist in `specs/001-arquitectura-inicial/quickstart.md` (GitHub: #24)
+- [x] T025 [P] [US3] Prepare documentation review assertions in `specs/001-arquitectura-inicial/contracts/ui-architecture.md` (GitHub: #25)
 
 ### Implementation for User Story 3
 
-- [ ] T026 [P] [US3] Document the project structure and flow in `README.md` (GitHub: #26)
-- [ ] T027 [P] [US3] Record the initial architecture decision in `docs/adr/0001-arquitectura-inicial.md` (GitHub: #27)
-- [ ] T028 [P] [US3] Write the technical architecture guide in `docs/architecture/contador-texto.md` (GitHub: #28)
-- [ ] T029 [US3] Add the release-note entry for the architectural baseline in `docs/releases/2026-04-22-arquitectura-inicial.md` (GitHub: #29)
+- [x] T026 [P] [US3] Document the project structure and flow in `README.md` (GitHub: #26)
+- [x] T027 [P] [US3] Record the initial architecture decision in `docs/adr/0001-arquitectura-inicial.md` (GitHub: #27)
+- [x] T028 [P] [US3] Write the technical architecture guide in `docs/architecture/contador-texto.md` (GitHub: #28)
+- [x] T029 [US3] Add the release-note entry for the architectural baseline in `docs/releases/2026-04-22-arquitectura-inicial.md` (GitHub: #29)
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -125,11 +125,11 @@ description: "Task list for initial application architecture implementation"
 
 **Purpose**: Ejecutar validaciones obligatorias y asegurar la entrega revisable.
 
-- [ ] T030 [P] Run `ng test` from `package.json` for `src/app/services/text-analysis-store.service.spec.ts`, `src/app/services/metrics-computation.service.spec.ts`, and `src/app/components/analysis-shell/analysis-shell.component.spec.ts` (GitHub: #30)
-- [ ] T031 [P] Run `ng lint` from `package.json` against `angular.json`, `src/app/components/analysis-shell/analysis-shell.component.ts`, and `src/app/services/text-analysis-store.service.ts` (GitHub: #31)
-- [ ] T032 [P] Run `ng build` from `package.json` using `angular.json`, `src/main.ts`, and `src/app/app.config.ts` (GitHub: #32)
-- [ ] T033 Validate the shell, accessibility behavior, and responsive layout in Simple Browser against `specs/001-arquitectura-inicial/quickstart.md` (GitHub: #33)
-- [ ] T034 Review updated documentation in `README.md`, `docs/adr/0001-arquitectura-inicial.md`, `docs/architecture/contador-texto.md`, and `docs/releases/2026-04-22-arquitectura-inicial.md` (GitHub: #34)
+- [x] T030 [P] Run `ng test` from `package.json` for `src/app/services/text-analysis-store.service.spec.ts`, `src/app/services/metrics-computation.service.spec.ts`, and `src/app/components/analysis-shell/analysis-shell.component.spec.ts` (GitHub: #30)
+- [x] T031 [P] Run `ng lint` from `package.json` against `angular.json`, `src/app/components/analysis-shell/analysis-shell.component.ts`, and `src/app/services/text-analysis-store.service.ts` (GitHub: #31)
+- [x] T032 [P] Run `ng build` from `package.json` using `angular.json`, `src/main.ts`, and `src/app/app.config.ts` (GitHub: #32)
+- [x] T033 Validate the shell, accessibility behavior, and responsive layout in Simple Browser against `specs/001-arquitectura-inicial/quickstart.md` (GitHub: #33)
+- [x] T034 Review updated documentation in `README.md`, `docs/adr/0001-arquitectura-inicial.md`, `docs/architecture/contador-texto.md`, and `docs/releases/2026-04-22-arquitectura-inicial.md` (GitHub: #34)
 
 ---
 

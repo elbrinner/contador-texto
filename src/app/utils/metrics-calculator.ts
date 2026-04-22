@@ -1,5 +1,13 @@
 import { NormalizedTextAnalysisInput } from '../models/text-analysis-input.model';
-import { TextAnalysisMetrics } from '../models/text-analysis-metrics.model';
+import {
+  createMetricBreakdown,
+  createMetricEntry,
+  createTextAnalysisMetrics,
+  MetricBreakdown,
+  MetricExtension,
+  TextAnalysisMetrics,
+  TextAnalysisMetricsDraft,
+} from '../models/text-analysis-metrics.model';
 import {
   countCharacters,
   countCharactersExcludingWhitespace,
@@ -21,7 +29,63 @@ function countParagraphs(text: string): number {
   return trimmedText.split(/\n\s*\n+/u).filter((paragraph) => paragraph.trim().length > 0).length;
 }
 
-export const EMPTY_TEXT_ANALYSIS_METRICS: TextAnalysisMetrics = Object.freeze({
+function createMetricBreakdownFromDraft(
+  draft: TextAnalysisMetricsDraft,
+  extensions: readonly MetricExtension[] = [],
+): MetricBreakdown {
+  return createMetricBreakdown({
+    primary: [
+      createMetricEntry({
+        key: 'words',
+        label: 'Palabras',
+        value: draft.words,
+        description: 'Conteo de palabras normalizadas.',
+      }),
+      createMetricEntry({
+        key: 'characters',
+        label: 'Caracteres',
+        value: draft.characters,
+        description: 'Todos los caracteres, incluidos espacios.',
+      }),
+      createMetricEntry({
+        key: 'tokens',
+        label: 'Tokens',
+        value: draft.estimatedTokens.tokens,
+        description: 'Estimación heurística para modelos de IA.',
+      }),
+    ],
+    secondary: [
+      createMetricEntry({
+        key: 'charactersExcludingWhitespace',
+        label: 'Caracteres sin espacios',
+        value: draft.charactersExcludingWhitespace,
+        description: 'Útil para revisar contenido neto.',
+      }),
+      createMetricEntry({
+        key: 'lines',
+        label: 'Líneas',
+        value: draft.lines,
+        description: 'Cada salto de línea cuenta.',
+      }),
+      createMetricEntry({
+        key: 'paragraphs',
+        label: 'Párrafos',
+        value: draft.paragraphs,
+        description: 'Bloques separados por líneas en blanco.',
+      }),
+    ],
+    extensions,
+  });
+}
+
+function finalizeMetrics(
+  draft: TextAnalysisMetricsDraft,
+  extensions: readonly MetricExtension[] = [],
+): TextAnalysisMetrics {
+  return createTextAnalysisMetrics(draft, createMetricBreakdownFromDraft(draft, extensions));
+}
+
+export const EMPTY_TEXT_ANALYSIS_METRICS: TextAnalysisMetrics = finalizeMetrics({
   characters: 0,
   charactersExcludingWhitespace: 0,
   words: 0,
@@ -32,7 +96,6 @@ export const EMPTY_TEXT_ANALYSIS_METRICS: TextAnalysisMetrics = Object.freeze({
     method: 'gpt35-heuristic',
     confidence: 1,
   },
-  extensions: [],
 });
 
 export function calculateTextMetrics(
@@ -45,13 +108,12 @@ export function calculateTextMetrics(
     return EMPTY_TEXT_ANALYSIS_METRICS;
   }
 
-  return {
+  return finalizeMetrics({
     characters: countCharacters(text),
     charactersExcludingWhitespace: countCharactersExcludingWhitespace(text),
     words: countWords(text),
     lines: countLines(text),
     paragraphs: countParagraphs(text),
     estimatedTokens: tokenEstimator.estimate(text),
-    extensions: [],
-  };
+  });
 }

@@ -7,17 +7,19 @@ import { MetricsComputationService, TextAnalysisComputation } from './metrics-co
 })
 export class TextAnalysisStoreService {
   private readonly metricsComputation = inject(MetricsComputationService);
+  private readonly sourceTextState = signal('');
   private readonly analysisState = signal<TextAnalysisComputation>(this.metricsComputation.computeText(''));
   private readonly pendingState = signal(false);
 
   readonly analysis = this.analysisState.asReadonly();
-  readonly sourceText = computed(() => this.analysis().input.text);
+  readonly sourceText = this.sourceTextState.asReadonly();
   readonly normalizedText = computed(() => this.analysis().input.normalizedText);
   readonly metrics = computed(() => this.analysis().metrics);
   readonly isPending = this.pendingState.asReadonly();
 
   updateText(text: string): void {
     this.pendingState.set(true);
+    this.sourceTextState.set(text);
 
     try {
       this.analysisState.set(this.metricsComputation.computeText(text));
