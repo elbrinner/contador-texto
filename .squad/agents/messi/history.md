@@ -60,3 +60,28 @@
 
 **Next Gate:** Manual validation of `/` route composition (responsive, accessible, metrics correct)
 
+## Allocation Review & Backlog Sequencing — 2026-04-22T22:25:11Z
+
+**Ralph (Work Monitor) Validation:** ✓ Complete  
+**Pele (Lead) Execution Plan:** ✓ Validated  
+
+**Your Batch Assignment:** **Batch 1 (Immediate) — T009 | Batch 2 (Parallel) — T012-T014**
+
+**Batch 1 Scope:**
+- **T009:** Root app host composition — hold at current placeholder until T020 contract clarity
+
+**Batch 2 Scope (post-T020 clarity):**
+- **T012:** Shell component with local state (text-input-panel + metrics-panel composition)
+- **T013:** Metrics panel with signal-driven metric animations
+- **T014:** Text input panel with controlled textarea + valueChange emission
+
+**Duration:** ~2 days total (T009 quick hold, T012-T014 parallel with Ronaldo T018-T019)  
+
+**Parallelization Strategy:**
+- **Store refinement path (T021):** Depends on Cruyff T020 model clarity; you can draft T021 once T020 architecture defined
+- **Component path (T012-T014):** Can start after T009 is architected + Cruyff's orchestration surface finalized
+
+**Start Condition:** Await Pele approval of Cruyff's T020 models (early-mid Batch 2)
+
+**Immediate Action:** Hold T009 at current state. Watch for Ronaldo T018-T019 test completion. Once tests lock shell contract, you begin T012-T014 implementation.
+

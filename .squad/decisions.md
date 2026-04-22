@@ -128,7 +128,103 @@ interface TokenEstimate {
 - Deferred phases begin after MVP checkpoint at T017
 - All dependencies validated for safe parallel execution
 
-**Governance:**
+---
+
+## Backlog Sequencing & Execution Plan — 2026-04-22T22:15:00Z (Pele)
+
+**Status:** Validated  
+**Owner:** Pele (Lead)  
+**Decision Type:** Execution strategy
+
+### Four-Batch Sequence for T008-T034
+
+#### Batch 1 (Immediate): T008 + T018-T019 — Test Authoring
+- **T008:** Orchestration service unit tests (Ronaldo) — confidence gate on metrics-computation.service.ts
+- **T018-T019:** US2 test contracts (Ronaldo) — test-first design
+- **Duration:** ~1 day
+- **Parallelization:** All three independent
+- **Gate:** None (test-first; fail to guide implementation)
+
+#### Batch 2 (Post-Tests): T020-T023 — US2 Implementation
+- **T020:** Encode flow ownership and extension metadata (Cruyff)
+- **T021:** Refine store API for single-write entry point (Messi)
+- **T022:** Refine service-to-utility boundaries (Cruyff)
+- **T023:** Add extension-ready metric structures (Cruyff)
+- **Duration:** ~2 days
+- **Parallelization:** Cruyff path (T020 → T022+T023) overlaps with Messi path (T021, gated on T020 clarity)
+- **Gate:** Pele contract review on T020 before implementation begins
+
+#### Batch 3 (Documentation): T024-T029 — Architecture Docs
+- **T024:** Prepare architecture smoke-check checklist (Scribe/Messi)
+- **T025:** Prepare documentation review assertions (Pele + Scribe)
+- **T026:** Document project structure in README (Scribe)
+- **T027:** Record architecture decision in ADR (Pele)
+- **T028:** Write technical architecture guide (Scribe + Pele)
+- **T029:** Add release-note entry (Scribe)
+- **Duration:** ~1.5 days
+- **Parallelization:** T024/T026/T029 parallel; T025/T027 review-gated; T028 waits on T026 draft
+- **Gate:** Pele doc review (T025, T027) before merge; starts only when T020+ in-flight (mid-Batch 2)
+- **Rationale:** Prevent documentation drift if architecture changes during refinement
+
+#### Batch 4 (Validation): T030-T034 — CI + A11y + Sign-Off
+- **T030-T032:** Run ng test, ng lint, ng build (Ronaldo) — ~4 hours total
+- **T033:** Browser validation + accessibility testing (Zidane + Maradona)
+- **T034:** Review updated documentation (Pele sign-off)
+- **Gate:** T033/T034 depend on build success + Phase 5 completion
+
+### Risk Guardrails
+
+1. **T008 Confidence Gate:** If service tests reveal architectural issues, resolve before proceeding to US2. ~1 day max recovery.
+2. **Reviewer Gate (T020):** Cruyff presents model/contract proposals to Pele; alignment checked before implementation.
+3. **Documentation Accuracy Gate (T025, T027):** All Phase 5 docs must pass Pele review. Rewritten if inaccurate.
+4. **Accessibility Sign-Off (T033):** Zidane validates WCAG 2.1 Level AA compliance. Failures logged for Phase 4B if not blocking.
+5. **No Early Docs:** Do NOT start T026-T029 until T020+ in-flight. Prevents rework.
+
+### Feature Flags Decision
+
+Ralph's feature-flag stack deferred to Phase 1B (post-US2 checkpoint) unless product prioritizes multi-format delivery as immediate P1.
+
+### Next Action
+
+Launch Ronaldo on T008/T018-T019 immediately. Alert Cruyff/Messi to prepare T020-T023 scope.
+
+---
+
+## US1 Test Batch Decision — 2026-04-22 (Ronaldo)
+
+**Status:** Proposed  
+**Scope:** T010-T011
+
+### Decision Rationale
+
+US1 store and shell specs added as contract-first pending suites because `text-analysis-store.service.ts` and `analysis-shell.component.*` do not exist yet.
+
+**Why this approach:**
+- Keeps tests aligned with task rules (define tests before implementation)
+- Does not invent public APIs; Messi still owns T012-T017 implementation
+- Tests lock architectural boundaries: store-owned Signals state, single input flow, shell composition, no metric logic in visual components
+
+### Follow-Up for Implementers
+
+- **T015:** Store with predictable empty state, derived analysis from MetricsComputationService, one controlled text mutation path
+- **T012/T017:** analysis-shell as `/` composition root composing text-input-panel + metrics-panel through store; no direct coupling between panels
+
+---
+
+## MVP Shell Handoff — 2026-04-22 (Messi)
+
+**Status:** Delivered
+
+### Changes
+
+- **app.component.ts:** Now owns only page-level framing; delegates all interaction layout to `app-analysis-shell`
+- **analysis-shell:** Composes `text-input-panel` and `metrics-panel` with placeholder-safe local state so T016-T017 can replace signals with store wiring without rewriting panel contracts
+- **text-input-panel:** Emits single `valueChange` event
+- **metrics-panel:** Consumes full `TextAnalysisMetrics` snapshot + lightweight pending flag (placeholder/loading states)
+
+---
+
+## Governance
 
 - All meaningful changes require team consensus
 - Document architectural decisions here

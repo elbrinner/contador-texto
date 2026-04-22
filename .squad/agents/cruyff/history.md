@@ -71,3 +71,28 @@
 
 **Next Gate:** Manual validation of `/` route composition once T009, T010–T011 complete
 
+## Allocation Review & Backlog Sequencing — 2026-04-22T22:25:11Z
+
+**Ralph (Work Monitor) Validation:** ✓ Complete  
+**Pele (Lead) Execution Plan:** ✓ Validated  
+
+**Your Batch Assignment:** **Batch 2 (Post-Tests) — T020-T023**
+
+**Tasks:**
+1. **T020:** Encode flow ownership and extension metadata in models (Cruyff)
+2. **T021:** Refine store API for single-write entry point (Messi — you parallel coordinate)
+3. **T022:** Refine service-to-utility boundaries (Cruyff — you coordinate with Cruyff)
+4. **T023:** Add extension-ready metric structures (Cruyff — you finalize contracts)
+
+**Duration:** ~2 days  
+**Start Condition:** T018-T019 (Ronaldo tests) written and passing  
+**Gate:** Pele contract review on T020 models/service boundaries before implementation begins  
+
+**Parallelization Strategy:**
+- Cruyff path: T020 (models) → T022 (service refinement) + T023 (metrics extension) — all coordinate with you
+- Your path: Approve T020 contract clarity before Messi starts T021 (store refinement)
+
+**Reviewer Gate:** You must review Cruyff's T020 model proposals with Pele; alignment checked before implementation. If disagreement: Pele decides; does not re-route.
+
+**Immediate Action:** Prepare T020-T023 scope. Ronaldo will feed you test results from Batch 1. You signal Cruyff when ready to start T020 contract drafting.
+

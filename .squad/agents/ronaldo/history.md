@@ -74,3 +74,23 @@
 
 **Next Gate:** Manual validation of `/` route composition (test suite passing, shell responsive, input accessible)
 
+## Allocation Review & Backlog Sequencing — 2026-04-22T22:25:11Z
+
+**Ralph (Work Monitor) Validation:** ✓ Complete  
+**Pele (Lead) Execution Plan:** ✓ Validated  
+
+**Your Batch Assignment:** **Batch 1 (Immediate) — T008 + T018-T019**
+- **T008:** Orchestration service unit tests (confidence gate on metrics-computation.service.ts)
+- **T018:** Extend store behavior tests for single-write, read-only projections  
+- **T019:** Input-to-metrics interaction coverage in shell
+
+**Duration:** ~1 day  
+**Parallelization:** All three independent; can run in parallel  
+**Gate:** None (test-first; fail to guide implementation)  
+
+**Batch 2 Prep:** Cruyff + Messi will handle T020-T023 (US2 implementation) once T018-T019 tests are written. Your T008 + test suite clears the confidence blocker before boundary refinements.
+
+**Risk Guardrail:** If T008 reveals architectural issues in orchestration service, resolve them before proceeding to US2. ~1 day max recovery.
+
+**Immediate Action:** You are ready to spawn and begin T008, T018, T019 now.
+
