@@ -14,6 +14,9 @@
   - Signal-based change detection keeps updates performant
   - ARIA live regions + animations create accessible, intuitive feedback
   - Felt strongly that stats shouldn't just *appear*, they should *move* — builds presence without clutter
+- Initial setup batch shipped the Angular 21 standalone workspace at the repo root with TailwindCSS, Angular ESLint, and Vitest-based `ng test`.
+- Key setup files now live in `package.json`, `angular.json`, `tailwind.config.js`, `postcss.config.js`, `src/main.ts`, and `src/app/app.config.ts`.
+- The bootstrap host is currently a lightweight standalone `src/app/app.component.ts` placeholder so Cruyff can start services/models without waiting for the final shell handoff in T009/T016.
 
 ## Team Updates — 2026-04-22 Brainstorm Session
 

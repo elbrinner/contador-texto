@@ -35,3 +35,13 @@
 **Blocks:** Messi (T001-T003, T009), Ronaldo (T008, T010, T011), Zidane (a11y validation on T011)  
 
 **Start Signal:** Begin immediately. Token service is MVP critical path.
+
+## Setup Handoff — 2026-04-22T22:03:43Z
+
+**Handoff Status:** ✓ Ready to Start  
+**Context:** Messi batch T001-T003 complete. Cruyff T004-T007 is critical path blocker.  
+**Downstream:** Ronaldo T008 awaits token service completion.  
+
+**Foundation Role:** Your token estimator service is the MVP backbone. Once T004-T007 ship, Ronaldo can begin test validation (T008) immediately.
+
+**Coordination:** Keep Ronaldo and Zidane informed of token service API — they integrate it in T008 and T011.
