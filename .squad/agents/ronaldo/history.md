@@ -11,6 +11,12 @@
 - Day 1: Hired as Tester for the Angular 21 application.
 - Quality expectations include UX-critical flows, not only technical correctness.
 - Day 2 (Brainstorm): User trust in *count accuracy* is the core product value. Edge cases with Unicode/emoji/multi-byte chars are high-risk. Visibility into verification status (confidence badge) converts abstract accuracy into user-facing reliability.
+- MVP scaffold currently stops at Angular app bootstrap files; `src/app/services/metrics-computation.service.ts` and the supporting `models/` + `utils/` contracts are not in the workspace yet.
+- T008 now lives in `src/app/services/metrics-computation.service.spec.ts` as a contract-first pending suite that locks the orchestration responsibilities before Cruyff lands the service.
+- The orchestration boundary must stay focused on composing normalization, token estimation, and metrics calculation while components remain free of metric logic.
+- US1 test batch T010/T011 is also contract-first: `src/app/services/text-analysis-store.service.spec.ts` and `src/app/components/analysis-shell/analysis-shell.component.spec.ts` currently define pending behavior because the store and shell implementation files are not in the repo yet.
+- The shell contract is strict about composition only: `/` must render `analysis-shell`, which hosts `text-input-panel` and `metrics-panel` through a shared store instead of direct panel coupling.
+- Store tests lock three early expectations for T015/T017: predictable empty-state analysis, derived recomputation via `MetricsComputationService`, and a single controlled write boundary for source text.
 
 ## Team Updates — 2026-04-22 Brainstorm Session
 
@@ -43,3 +49,28 @@
 **Coordination:** Watch for Cruyff TokenEstimator service completion. Once available, implement differential verification suite immediately.
 
 **Parallel:** Zidane works a11y validation on T011 simultaneously — coordinate screen reader testing protocols.
+
+## Foundation Completion — 2026-04-22T22:10:09Z
+
+**Cruyff Status:** ✓ SHIPPED (T004–T007)  
+**Your Readiness:** Ready to begin T010–T011  
+
+**What's Now Available:**
+- MetricsComputationService orchestration live
+- Token estimation service API surface final
+- Domain input & metrics contracts locked
+- Pure text-analysis helpers ready for testing
+
+**Next Steps (in order):**
+1. **T010:** Store tests (fail-first contract-driving)
+   - Contract: MetricsComputationService public surface
+   - Focus: State management via signals; user input flow
+2. **T011:** Shell composition tests (fail-first a11y posture)
+   - Contract: Shell layout + component hierarchy
+   - Focus: ARIA live regions, keyboard navigation
+   - Parallel: Zidane a11y validation (NVDA/JAWS)
+
+**Critical Detail:** Your T008 contract-first pending spec is now ready for Cruyff's real metrics-computation service implementation. Expected executable unit tests once your T010–T011 establish the orchestration boundary.
+
+**Next Gate:** Manual validation of `/` route composition (test suite passing, shell responsive, input accessible)
+

@@ -35,3 +35,25 @@
 **Parallel Tracks:** Zidane a11y validation, Maradona UX design  
 
 **Start Signal:** Await Cruyff token estimator service completion for signal-driven metric animations.
+
+## Foundation Completion — 2026-04-22T22:10:09Z
+
+**Cruyff Status:** ✓ SHIPPED (T004–T007)  
+**Your Readiness:** Ready to begin T009, T012–T014  
+
+**What's Now Available:**
+- MetricsComputationService orchestration layer live
+- Token estimation pluggable via `TOKEN_ESTIMATOR` injection token
+- `defaultTokenEstimator` browser-safe GPT-3.5 heuristic
+- Domain input/metrics contracts in `src/app/models/`
+- Pure helpers in `src/app/utils/`
+
+**Next Steps (in order):**
+1. **T009:** Root app host (`src/app/app.component.ts`) — awaits Cruyff models/contracts
+2. **T012–T014:** Shell, text input, metrics panel components (parallel, after T009)
+3. **Signal-driven animations:** Can now integrate with live Cruyff metrics service
+
+**Parallel:** Ronaldo (T010–T011) writes shell composition tests simultaneously
+
+**Next Gate:** Manual validation of `/` route composition (responsive, accessible, metrics correct)
+
